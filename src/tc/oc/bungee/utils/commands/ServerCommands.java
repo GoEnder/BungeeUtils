@@ -3,7 +3,6 @@ package tc.oc.bungee.utils.commands;
 import java.net.InetSocketAddress;
 import java.util.Collection;
 
-import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
@@ -41,7 +40,7 @@ public class ServerCommands {
     )
     @CommandPermissions("bungeeutils.serverlist")
     public static void serverlist(final CommandContext args, CommandSender sender) throws CommandException {
-        final Collection<ServerInfo> servers = BungeeCord.getInstance().getServers().values();
+        final Collection<ServerInfo> servers = ProxyServer.getInstance().getServers().values();
 
         new SimplePaginatedResult<ServerInfo>("BungeeCord Servers") {
             @Override public String format(ServerInfo server, int index) {
